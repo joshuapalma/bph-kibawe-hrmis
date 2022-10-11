@@ -8,7 +8,7 @@ class EmployeeProfileRepository
 {
     public function getAllEmployeeProfile()
     {
-        $employeeProfile = EmployeeProfile::orderBy('created_at', 'DESC')->paginate(10);
+        $employeeProfile = EmployeeProfile::orderBy('created_at', 'ASC')->paginate(10);
         return compact('employeeProfile');
     }
 

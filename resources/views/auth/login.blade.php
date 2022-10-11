@@ -9,7 +9,16 @@
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-start">
-                                    <h4 class="font-weight-bolder">Sign In</h4>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <img src="./img/main-logo.jpg" class="h-100" alt="main_logo" width="150px">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <h4 class="font-weight-bolder text-center">Sign In</h4>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <form role="form" method="POST" action="{{ route('login.perform') }}">
@@ -27,7 +36,7 @@
                                         </div>
                                         
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                                            <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" style="background-color: #A7C7E7;">Sign in</button>
                                         </div>
                                     </form>
                                 </div>
@@ -38,7 +47,7 @@
                             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
                                 style="background-image: url('img/hris.svg');
               background-size: cover;">
-                                <span class="mask bg-gradient-primary opacity-6"></span>
+                                <span class="mask opacity-6" style="background-image: linear-gradient(310deg, #A7C7E7 0%, #A7C7E7 100%);"></span>
                                 <h3 class="mt-5 text-white font-weight-bolder position-relative">BPH-KIBAWE</h3>
                                 <p class="text-white position-relative">Human Resources Management Information System</p>
                             </div>

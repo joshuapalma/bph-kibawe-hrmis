@@ -11,7 +11,7 @@ class LeaveRepository
     public function getAllLeave()
     {
         $employeeName = EmployeeProfile::pluck('complete_name');
-        $leave = Leave::orderBy('created_at', 'DESC')->paginate(10);
+        $leave = Leave::orderBy('created_at', 'ASC')->paginate(10);
 
         return compact('employeeName', 'leave');
     }

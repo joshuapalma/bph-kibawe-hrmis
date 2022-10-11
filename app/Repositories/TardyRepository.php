@@ -11,7 +11,7 @@ class TardyRepository
     public function getAllTardy()
     {
         $employeeName = EmployeeProfile::pluck('complete_name');
-        $tardy = Tardy::orderBy('created_at', 'DESC')->paginate(10);
+        $tardy = Tardy::orderBy('created_at', 'ASC')->paginate(10);
 
         return compact('employeeName', 'tardy');
     }

@@ -91,8 +91,10 @@
 
 @push('js')
     <script>
-        $(function() {
-            $('#edit_name').trigger('change');
+        $(document).ready(function() {
+            $(function() {
+                $('#edit_name').change();
+            })
         })
 
         $('#add-leave-form').validate({
@@ -152,7 +154,6 @@
 
         function editLeave(id) {
             const detail = $(`#leave-details-${id}`).data().detail;     
-            console.log(detail.name)
             newDateOfLeave = formatDate(detail.date_of_leave);
 
             $('#edit_name').attr('value',detail.name);            

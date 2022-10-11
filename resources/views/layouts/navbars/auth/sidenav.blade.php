@@ -5,8 +5,8 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('home') }}"
             target="_blank">
-            <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">BPH-KIBAWE-HRMIS</span>
+            <img src="./img/main-logo.jpg" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-3 font-weight-bold">BPH-KIBAWE-HRMIS</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -16,7 +16,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                        <i class="ni ni-tv-2 text-sm opacity-10" style="color: #A7C7E7;"></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
@@ -25,7 +25,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'employee-profile' ? 'active' : '' }}" href="{{ route('employee-profile') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-user-run text-primary text-sm opacity-10"></i>
+                        <i class="ni ni-user-run text-sm opacity-10" style="color: #A7C7E7;"></i>
                     </div>
                     <span class="nav-link-text ms-1">Employee Profile</span>
                 </a>
@@ -34,7 +34,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'leave' ? 'active' : '' }}" href="{{ route('leave') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
+                        <i class="ni ni-check-bold text-sm opacity-10" style="color: #A7C7E7;"></i>
                     </div>
                     <span class="nav-link-text ms-1">Leave</span>
                 </a>
@@ -43,7 +43,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'tardy' ? 'active' : '' }}" href="{{ route('tardy') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-watch-time text-primary text-sm opacity-10"></i>
+                        <i class="ni ni-watch-time text-sm opacity-10" style="color: #A7C7E7;"></i>
                     </div>
                     <span class="nav-link-text ms-1">Tardy</span>
                 </a>

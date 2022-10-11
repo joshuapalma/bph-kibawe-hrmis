@@ -98,9 +98,9 @@
             </div>
         </div>
     </div>
+    @include('modals.delete-modal')
     @include('modals.tardy.create-tardy-modal')
     @include('modals.tardy.edit-tardy-modal')
-    @include('modals.delete-modal')
 @endsection
 
 @push('js')
@@ -146,6 +146,7 @@
         function deleteTardy(btn) {
             var data = $(btn).data();
             var url = data.url;
+
             $('#delete-form').attr('action', url);
         }
 

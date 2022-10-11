@@ -17,7 +17,7 @@
                           <label>Name</label>
                           <select class="form-control" id="edit_name" name="name" value="" onchange='getDesignationByName(this, "#edit_designation")' placeholder="Select">
                             @foreach ($employeeName as $key => $row)
-                                <option value="{{ $row }}" {{ $row ? "selected" : null}}>{{ $row }}</option>
+                                <option value="{{ $row }}" {{ $row ? "selected" : ''}}>{{ $row }}</option>
                             @endforeach
                           </select>
                       </div>
