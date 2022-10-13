@@ -102,7 +102,7 @@
                                             <span class="text-xs font-weight-bold badge bg-gradient-danger">Warning</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">10 Undertime</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }} Undertime</span>
                                         </td>
                                     </tr>
                                 @empty

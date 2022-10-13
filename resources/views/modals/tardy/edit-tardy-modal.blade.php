@@ -13,17 +13,24 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" id="edit_name" name="name" placeholder="Name">
-                        </div>
+                      @component('components.input.select')
+                          @slot('label', 'Name')
+                          @slot('options', getEmployeeName())
+                          @slot('attributes', [
+                              'name' => 'name',
+                              'id' => 'edit_name',
+                              'value' => "",
+                              'class' => 'form-control',
+                              'onchange' => "getDesignationByName(this, '#edit_designation')"
+                          ])
+                      @endcomponent
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Designation</label>
-                            <input type="text" class="form-control" id="edit_designation" name="designation" placeholder="Designation">
+                            <input type="text" class="form-control" id="edit_designation" name="designation" placeholder="Designation" readonly>
                         </div>
                     </div>
                   </div>

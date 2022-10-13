@@ -30,7 +30,7 @@ class HomeController extends Controller
             'employeeCount' => EmployeeProfile::count(),
             'leaveCount' => Leave::count(),
             'tardyCount' => Tardy::count(),
-            'notification' => Tardy::where('undertime', '>=', '10')->paginate(10)
+            'notification' => Tardy::where('undertime', '>=', '10')->select('id', 'name', 'designation', 'undertime')->paginate(10)
         ];
 
         return view('pages.dashboard', $data);

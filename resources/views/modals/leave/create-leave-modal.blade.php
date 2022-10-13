@@ -12,15 +12,18 @@
             <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
-                      <div class="form-group">
-                          <label>Name</label>
-                          <select class="form-control" id="name" name="name" onchange='getDesignationByName(this, "#designation")' placeholder="Select">
-                            <option selected disabled>Select</option>
-                            @foreach ($employeeName as $key => $row)
-                                <option value="{{ $row }}" {{ $row ? "selected" : null}}>{{ $row }}</option>
-                            @endforeach
-                          </select>
-                      </div>
+                      @component('components.input.select')
+                          @slot('label', 'Name')
+                          @slot('options', getEmployeeName())
+                          @slot('attributes', [
+                              'name' => 'name',
+                              'id' => 'name',
+                              'value' => "",
+                              'class' => 'form-control',
+                              'placeholder' => 'Select',
+                              'onchange' => "getDesignationByName(this, '#designation')"
+                          ])
+                      @endcomponent
                   </div>
                 </div>
                 <div class="row">

@@ -134,7 +134,7 @@
         function editTardy(id) {
             const detail = $(`#tardy-details-${id}`).data().detail;     
 
-            $('#edit_name').attr('value',detail.name);            
+            $('#edit_name').val(detail.name);            
             $('#edit_designation').attr('value',detail.designation);
             $('#edit_tardy').attr('value',detail.tardy);
             $('#edit_undertime').attr('value',detail.undertime);
@@ -158,7 +158,7 @@
                 url: "{{ route('getDesignationByName') }}",
                 type: 'GET',
                 data: {
-                    employeeName: name
+                    employee: name
                 },
                 success: function(result){
                     var resultDesignation = result.query.designation;

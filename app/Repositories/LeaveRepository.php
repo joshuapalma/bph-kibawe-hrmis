@@ -63,7 +63,7 @@ class LeaveRepository
 
     public function getDesignationByName($request)
     {
-        $query = EmployeeProfile::where('complete_name', $request->employeeName)->first();
+        $query = EmployeeProfile::where('complete_name', $request->employee)->select('designation')->first();
         return compact ('query');
     }
 }

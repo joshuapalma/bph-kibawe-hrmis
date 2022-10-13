@@ -91,12 +91,6 @@
 
 @push('js')
     <script>
-        $(document).ready(function() {
-            $(function() {
-                $('#edit_name').change();
-            })
-        })
-
         $('#add-leave-form').validate({
             rules: {
                 name: {
@@ -156,8 +150,8 @@
             const detail = $(`#leave-details-${id}`).data().detail;     
             newDateOfLeave = formatDate(detail.date_of_leave);
 
-            $('#edit_name').attr('value',detail.name);            
-            // $('#edit_designation').attr('value',detail.designation);
+            $('#edit_name').val(detail.name);            
+            $('#edit_designation').attr('value',detail.designation);
             $('#edit_date_of_leave').val(newDateOfLeave);
             $('#edit_nature_of_leave').attr('value',detail.nature_of_leave);
             $('#edit-leave-form').attr('action', `leave/update/${detail.id}`)
@@ -177,12 +171,12 @@
                 url: "{{ route('getDesignationByName') }}",
                 type: 'GET',
                 data: {
-                    employeeName: name
+                    employee: name
                 },
+
                 success: function(result){
                     var resultDesignation = result.query.designation;
                     $(designation).val(resultDesignation);
-
                 },
                 error: function(result){
                     console.log(result);

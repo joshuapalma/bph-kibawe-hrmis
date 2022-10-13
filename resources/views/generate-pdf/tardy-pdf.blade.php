@@ -25,50 +25,50 @@
         </div>
         <div class="row mt-4">
             <div class="col-lg-12">
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="width: 50px !important;">
                     <thead>
                       <tr>
-                        <th class="text-center text-uppercase text-secondary text-xxs">ID</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs ps-2">Name</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs">Designation</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs">No. of times Tardy</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs">No. of times Undertime</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs" colspan="2">Total No. of</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>No. of times Tardy</th>
+                        <th>No. of times Undertime</th>
+                        <th  colspan="2">Total No. of</th>
                       </tr>
                       <tr>
-                          <th class="text-center text-uppercase text-secondary text-xxs" colspan="5"></th>
-                          <th class="text-center text-uppercase text-secondary text-xxs">Hours</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs">Minutes</th>
+                          <th colspan="5"></th>
+                          <th>Hours</th>
+                          <th>Minutes</th>
                       </tr>
                     </thead>
                     <tbody>
                       @forelse ($users as $row)
                           <tr>
                               <td>
-                                  <p class="text-xs font-weight-bold mb-0">{{ $row->id }}</p>
+                                  <p>{{ $row->id }}</p>
                               </td>
                               <td>
-                                  <p class="text-xs font-weight-bold mb-0">{{ ucfirst($row->name) }}</p>
+                                  <p>{{ ucfirst($row->name) }}</p>
                               </td>
-                              <td class="align-middle text-center text-sm">
-                                  <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->designation) }}</span>
+                              <td>
+                                  <span>{{ ucfirst($row->designation) }}</span>
                               </td>
-                              <td class="align-middle text-center">
-                                  <span class="text-secondary text-xs font-weight-bold">{{ $row->tardy }}</span>
+                              <td>
+                                  <span>{{ $row->tardy }}</span>
                               </td>
-                              <td class="align-middle text-center">
-                                  <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }}</span>
+                              <td>
+                                  <span>{{ $row->undertime }}</span>
                               </td>
-                              <td class="align-middle text-center">
-                                  <span class="text-secondary text-xs font-weight-bold">{{ $row->hours }}</span>
+                              <td>
+                                  <span>{{ $row->hours }}</span>
                               </td>
-                              <td class="align-middle text-center">
-                                  <span class="text-secondary text-xs font-weight-bold">{{ $row->mins }}</span>
+                              <td>
+                                  <span>{{ $row->mins }}</span>
                               </td>
                           </tr>
                       @empty
                           <tr>
-                              <td colspan="6" class="font-weight-bold text-center">No Data Available</td>
+                              <td colspan="6">No Data Available</td>
                           </tr>
                       @endforelse
                     </tbody>
