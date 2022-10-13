@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -87,4 +87,86 @@
 
     </script>
   </body>
+</html>
+
+ --}}
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center lh-1">Republic of the Philippines</p>
+                <p class="text-center font-weight-bold lh-1">Province of Bukidnon</p>
+                <p class="text-center lh-1">Provincial Capitol</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center font-weight-bold lh-1">MONTHLY TARDY AND UNDERTIME SUMMARY REPORT</p>
+                <p class="text-center lh-1">For the month of {{ date('M Y') }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h6 class="font-weight-bold text-center lh-1">OFFICE: BUKIDNON PROVINCIAL HOSPITAL - KIBAWE (REGULAR)</h6>
+        </div>
+        <br>
+        <table class="table table-bordered mb-5">
+            <thead>
+                <tr class="table-info text-center">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>No. of times Tardy</th>
+                    <th>No. of times Undertime</th>
+                    <th  colspan="2">Total No. of</th>
+                </tr>
+                    <tr>
+                        <th colspan="5"></th>
+                        <th>Hours</th>
+                        <th>Minutes</th>
+                    </tr>
+            </thead>
+            <tbody>
+                @forelse ($users as $row)
+                    <tr>
+                        <th scope="row">{{ $row->id }}</th>
+                        <td>{{ $row->name }}</td>
+                        <td>{{ $row->designation }}</td>
+                        <td>{{ $row->tardy }}</td>
+                        <td>{{ $row->undertime }}</td>
+                        <td>{{ $row->hours }}</td>
+                        <td>{{ $row->minutes }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5">No Data Available</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-5">
+            <p class="mb-5">Prepared by:</p>
+            <p class="font-weight-bold" style="line-height:5px;">JUNRIEL D. OCOR</p>
+            <p class="font-weight-bold" style="line-height:5px;">Administrative Aide III</p>
+        </div>
+        <div class="col-md-6">
+            <p class="mb-5">Approved by:</p>
+            <p class="font-weight-bold" style="line-height:5px;">ANTONIO R. TUBOG, MD, FPSMS</p>
+            <p class="font-weight-bold" style="line-height:5px;">Chief of Hospital II</p>
+        </div>
+    </div>
+</body>
 </html>
