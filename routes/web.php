@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/getDesignationByName', [LeaveController::class, 'getDesignationByName'])->name('getDesignationByName');
 
-    Route::get('/employee-profile', [EmployeeProfileController::class, 'index'])->name('employee-profile');
+    Route::get('/employee-profile', [EmployeeProfileController::class, 'index'])->name('employee-profile.index');
     Route::post('/employee-profile/store', [EmployeeProfileController::class, 'store'])->name('employee-profile.store');
     Route::put('/employee-profile/update/{id}', [EmployeeProfileController::class, 'update'])->name('employee-profile.update');
     Route::delete('/employee-profile/delete/{id}', [EmployeeProfileController::class, 'destroy'])->name('employee-profile.destroy');

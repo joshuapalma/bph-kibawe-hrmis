@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'employee-profile' ? 'active' : '' }}" href="{{ route('employee-profile') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'employee-profile.index' ? 'active' : '' }}" href="{{ route('employee-profile.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-user-run text-sm opacity-10" style="color: #A7C7E7;"></i>

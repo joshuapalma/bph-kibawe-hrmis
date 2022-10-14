@@ -21,9 +21,9 @@ class EmployeeProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $result = $this->employeeProfile->getAllEmployeeProfile();
+        $result = $this->employeeProfile->getAllEmployeeProfile($request);
         return view('pages.employee-profile', $result);
     }
 

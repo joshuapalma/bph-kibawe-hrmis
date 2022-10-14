@@ -146,7 +146,7 @@
                         <td>{{ $row->tardy }}</td>
                         <td>{{ $row->undertime }}</td>
                         <td>{{ $row->hours }}</td>
-                        <td>{{ $row->minutes }}</td>
+                        <td>{{ $row->mins }}</td>
                     </tr>
                 @empty
                     <tr>

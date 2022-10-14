@@ -3,13 +3,28 @@
 namespace App\Repositories;
 
 use App\Models\EmployeeProfile;
+use Illuminate\Pipeline\Pipeline;
 
 class EmployeeProfileRepository
 {
-    public function getAllEmployeeProfile()
+    public function getAllEmployeeProfile($request)
     {
-        $employeeProfile = EmployeeProfile::orderBy('created_at', 'ASC')->paginate(10);
-        return compact('employeeProfile');
+        $requestData = [
+            'search' => isset($request->search) ? $request->search : null
+        ];
+
+        $query = EmployeeProfile::query();
+
+        $result = app(Pipeline::class)
+            ->send($query)
+            ->through([
+                \App\Pipelines\Search\SearchEmployeeProfileTable::class
+            ])->thenReturn();
+
+        $data = $result ? $result : $query;
+        $employeeProfile = $data->orderBy('created_at', 'ASC')->paginate(10);
+
+        return compact('employeeProfile', 'requestData');
     }
 
     public function storeEmployeeProfile($request)

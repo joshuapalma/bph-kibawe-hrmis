@@ -3,13 +3,36 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Employee Profile'])
     <div class="container-fluid py-4">
-        <div class="row mt-4">
-            <div class="col-lg-12 mb-lg-0 mb-4">
-                <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
-                    <div class="col-lg-12 col-md-12 d-flex justify-content-end">
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
-                    </div>
+        {{-- <div class="row mt-4">
+            <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;"> 
+                <div class="col-lg-6 col-md-6">
+                    <form action="{{route('employee-profile.index')}}" method="GET">
+                        <div class="form-group">
+                            <div class="input-group mb-4">
+                                <button class="search-btn" type="submit" style="border: none; border-top-left-radius: 10px; border-bottom-left-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
+                                <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                <div class="col-lg-6 col-md-6">
+                    <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
+                </div>
+            </div>
+        </div> --}}
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <form action="{{route('employee-profile.index')}}" method="GET">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
+                            <button class="search-btn" type="submit" style="border: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card col-lg-6 col-md-6" style="background-color: transparent; border: none; box-shadow: none;">
+                <a href="#" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" style="width: 40%; margin-left: auto;">Add Employee</a>
             </div>
         </div>
         <div class="row mt-4">
@@ -80,7 +103,7 @@
                             </table>
                           </div>
                         <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                            {{$employeeProfile->links()}}
+                            {{$employeeProfile->appends(['search' => isset($requestData->search) ? $requestData->search : null])}}
                         </div>
                     </div>
                 </div>
