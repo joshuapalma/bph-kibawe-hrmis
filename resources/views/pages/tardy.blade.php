@@ -21,7 +21,7 @@
                             <table class="table align-items-center mb-0">
                               <thead>
                                 <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Designation</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. of times Tardy</th>
@@ -38,10 +38,10 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                @forelse ($tardy as $row)
+                                @forelse ($tardy as $index => $row)
                                     <tr>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ $row->id }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{ ucfirst($row->name) }}</p>
