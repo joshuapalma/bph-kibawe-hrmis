@@ -124,7 +124,7 @@
         <table class="table table-bordered mb-5">
             <thead>
                 <tr class="table-info text-center">
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Designation</th>
                     <th>No. of times Tardy</th>
@@ -138,9 +138,9 @@
                     </tr>
             </thead>
             <tbody>
-                @forelse ($users as $row)
+                @forelse ($users as $index => $row)
                     <tr>
-                        <th scope="row">{{ $row->id }}</th>
+                        <th scope="row">{{ $index + 1 }}</th>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->designation }}</td>
                         <td>{{ $row->tardy }}</td>

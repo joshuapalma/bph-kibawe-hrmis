@@ -25,6 +25,11 @@
         </div>
         <hr>
         <div class="row">
+            <div class="col-md-12">
+                <p class="font-weight-bold lh-1 text-center">TRANSMITTAL</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-2">
                 <p class="font-weight-bold lh-1">To:</p>
             </div>
@@ -37,20 +42,14 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-2">
-                <p class="font-weight-bold lh-1">Date:</p>
-            </div>
-            <div class="col-md-10">
-                <h6 class="lh-1">{{ date('M d, Y') }}</h6>
+            <div class="col-md-12">
+                <p class="font-weight-bold lh-1">Date: {{ date('M d, Y') }}<</p>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md-2">
-                <p class="font-weight-bold lh-1">Subject:</p>
-            </div>
-            <div class="col-md-10">
-                <h6 class="font-weight-bold lh-1">APPLICATION FOR LEAVE</h6>
+            <div class="col-md-12">
+                <p class="font-weight-bold lh-1">Subject: APPLICATION FOR LEAVE</p>
             </div>
         </div>
         <br>
@@ -70,9 +69,9 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($users as $row)
+                @forelse ($users as $index => $row)
                     <tr>
-                        <th scope="row">{{ $row->id }}</th>
+                        <th scope="row">{{ $index + 1 }}</th>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->designation }}</td>
                         <td>{{ $row->date_of_leave }}</td>
@@ -85,6 +84,18 @@
                 @endforelse
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-5">
+            <p class="mb-5">Prepared by:</p>
+            <p class="font-weight-bold" style="line-height:5px;">JUNRIEL D. OCOR</p>
+            <p class="font-weight-bold" style="line-height:5px;">Administrative Aide III</p>
+        </div>
+        <div class="col-md-6">
+            <p class="mb-5">Approved by:</p>
+            <p class="font-weight-bold" style="line-height:5px;">ANTONIO R. TUBOG, MD, FPSMS</p>
+            <p class="font-weight-bold" style="line-height:5px;">Chief of Hospital II</p>
+        </div>
     </div>
 </body>
 </html>
