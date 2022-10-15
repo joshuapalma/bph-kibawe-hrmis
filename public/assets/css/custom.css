@@ -1,0 +1,12 @@
+#prev-next-pagination{
+    display: none;
+}
+
+@media (max-width: 1120px) {
+    #prev-next-pagination{
+        display: block;
+    }
+    #number-pagination{
+        display: none !important;
+    }
+}

@@ -102,8 +102,12 @@
                               </tbody>
                             </table>
                         </div>
-                        <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                            {{$tardy->links()}}
+                        <div class="table-pagination p-5">
+                            <div class="row">
+                                <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
+                                    {{$tardy->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

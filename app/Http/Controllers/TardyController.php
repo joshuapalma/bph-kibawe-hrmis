@@ -46,7 +46,7 @@ class TardyController extends Controller
     public function store(StoreTardyRequests $request)
     {
         $this->tardy->storeTardy($request);
-        return redirect()->route('tardy')->with('success', 'Tardy Created Successfully');
+        return redirect()->route('tardy.index')->with('success', 'Tardy Created Successfully');
     }
 
     /**
@@ -81,7 +81,7 @@ class TardyController extends Controller
     public function update(Request $request,Tardy $id)
     {
         $this->tardy->updateTardy($id, $request);
-        return redirect()->route('tardy')->with('success', 'Tardy Updated Successfully');
+        return redirect()->route('tardy.index')->with('success', 'Tardy Updated Successfully');
     }
 
     /**
@@ -93,7 +93,7 @@ class TardyController extends Controller
     public function destroy(Tardy $id)
     {
         $this->tardy->deleteTardy($id);
-        return redirect()->route('tardy')->with('success', 'Tardy Deleted Successfully');
+        return redirect()->route('tardy.index')->with('success', 'Tardy Deleted Successfully');
     }
 
     public function generatePDF()

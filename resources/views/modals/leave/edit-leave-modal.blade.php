@@ -44,10 +44,17 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                      <div class="form-group">
-                          <label>Nature of Leave</label>
-                          <input type="text" class="form-control" id="edit_nature_of_leave" name="nature_of_leave" placeholder="Nature of Leave">
-                      </div>
+                    @component('components.input.select')
+                        @slot('label', 'Nature of Leave')
+                        @slot('options', getNatureOfLeave())
+                        @slot('attributes', [
+                            'name' => 'nature_of_leave',
+                            'id' => 'edit_nature_of_leave',
+                            'value' => "",
+                            'class' => 'form-control',
+                            'placeholder' => 'Select'
+                        ])
+                    @endcomponent
                   </div>
                 </div>
               </div>

@@ -43,12 +43,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  {{-- <div class="col-md-12">
-                      <div class="form-group">
-                          <label>Nature of Leave</label>
-                          <input type="text" class="form-control" id="nature_of_leave" name="nature_of_leave" placeholder="Nature of Leave">
-                      </div>
-                  </div> --}}
                   <div class="col-md-12">
                     @component('components.input.select')
                         @slot('label', 'Nature of Leave')

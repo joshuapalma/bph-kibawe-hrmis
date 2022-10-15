@@ -46,7 +46,7 @@ class EmployeeProfileController extends Controller
     public function store(StoreEmployeeProfileRequests $request)
     {
         $this->employeeProfile->storeEmployeeProfile($request);
-        return redirect()->route('employee-profile')->with('success', 'Employee Profile Created Successfully');
+        return redirect()->route('employee-profile.index')->with('success', 'Employee Profile Created Successfully');
     }
 
     /**
@@ -81,7 +81,7 @@ class EmployeeProfileController extends Controller
     public function update(UpdateEmployeeProfileRequests $request, EmployeeProfile $id)
     {
         $this->employeeProfile->updateEmployeeProfile($id, $request);
-        return redirect()->route('employee-profile')->with('success', 'Employee Profile Updated Successfully');
+        return redirect()->route('employee-profile.index')->with('success', 'Employee Profile Updated Successfully');
     }
 
     /**
@@ -93,6 +93,6 @@ class EmployeeProfileController extends Controller
     public function destroy(EmployeeProfile $id)
     {
         $this->employeeProfile->deleteEmployeeProfile($id);
-        return redirect()->route('employee-profile')->with('success', 'Employee Profile Deleted Successfully');
+        return redirect()->route('employee-profile.index')->with('success', 'Employee Profile Deleted Successfully');
     }
 }

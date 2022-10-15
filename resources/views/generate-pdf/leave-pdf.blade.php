@@ -74,7 +74,7 @@
                         <th scope="row">{{ $index + 1 }}</th>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->designation }}</td>
-                        <td>{{ $row->date_of_leave }}</td>
+                        <td>{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</td>
                         <td>{{ $row->nature_of_leave }}</td>
                     </tr>
                 @empty

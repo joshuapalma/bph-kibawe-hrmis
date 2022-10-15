@@ -3,28 +3,11 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Leave'])
     <div class="container-fluid py-4">
-        {{-- <div class="row">
-            <div class="col-md-6">
-                @component('components.input.select')
-                    @slot('label', 'Nature of Leave')
-                    @slot('options', getNatureOfLeave())
-                    @slot('attributes', [
-                        'name' => 'nature_of_leave',
-                        'id' => 'nature_of_leave',
-                        'value' => "",
-                        'class' => 'form-control',
-                        'placeholder' => 'Select'
-                    ])
-                @endcomponent
-            </div>
-            <div class="col-md-6">
-
-            </div>
-        </div> --}}
         <div class="row mt-4">
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
                         <a href="{{ route('leave.generate-pdf') }}" class="btn bg-gradient-info z-index-2 me-2" target="_blank">Generate Report</a>
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Leave</button>
                     </div>
@@ -75,7 +58,7 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->nature_of_leave) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ getNatureOfLeave()[$row->nature_of_leave] }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
@@ -106,8 +89,12 @@
                               </tbody>
                             </table>
                           </div>
-                        <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                            {{$leave->append(['search' => isset($requestData->search) ? $requestData->search : null])}}
+                          <div class="table-pagination p-5">
+                            <div class="row">
+                                <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
+                                    {{$leave->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,6 +103,7 @@
     </div>
     @include('modals.leave.create-leave-modal')
     @include('modals.leave.edit-leave-modal')
+    @include('modals.leave.filter-modal')
     @include('modals.delete-modal')
 @endsection
 
@@ -183,7 +171,7 @@
             $('#edit_name').val(detail.name);            
             $('#edit_designation').attr('value',detail.designation);
             $('#edit_date_of_leave').val(newDateOfLeave);
-            $('#edit_nature_of_leave').attr('value',detail.nature_of_leave);
+            $('#edit_nature_of_leave').val(detail.nature_of_leave);
             $('#edit-leave-form').attr('action', `leave/update/${detail.id}`)
         }
 

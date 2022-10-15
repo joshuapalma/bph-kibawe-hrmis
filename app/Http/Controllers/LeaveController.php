@@ -47,7 +47,7 @@ class LeaveController extends Controller
     public function store(StoreLeaveRequests $request)
     {
         $this->leave->storeLeave($request);
-        return redirect()->route('leave')->with('success', 'Leave Created Successfully');
+        return redirect()->route('leave.index')->with('success', 'Leave Created Successfully');
     }
 
     /**
@@ -82,7 +82,7 @@ class LeaveController extends Controller
     public function update(UpdateLeaveRequests $request, Leave $id)
     {
         $this->leave->updateLeave($id, $request);
-        return redirect()->route('leave')->with('success', 'Leave Updated Successfully');
+        return redirect()->route('leave.index')->with('success', 'Leave Updated Successfully');
     }
 
     /**
@@ -94,7 +94,7 @@ class LeaveController extends Controller
     public function destroy(Leave $id)
     {
         $this->leave->deleteLeave($id);
-        return redirect()->route('leave')->with('success', 'Leave Deleted Successfully');
+        return redirect()->route('leave.index')->with('success', 'Leave Deleted Successfully');
     }
 
     public function generatePDF()
