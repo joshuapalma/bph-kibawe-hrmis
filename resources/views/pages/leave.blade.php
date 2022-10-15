@@ -3,6 +3,24 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Leave'])
     <div class="container-fluid py-4">
+        {{-- <div class="row">
+            <div class="col-md-6">
+                @component('components.input.select')
+                    @slot('label', 'Nature of Leave')
+                    @slot('options', getNatureOfLeave())
+                    @slot('attributes', [
+                        'name' => 'nature_of_leave',
+                        'id' => 'nature_of_leave',
+                        'value' => "",
+                        'class' => 'form-control',
+                        'placeholder' => 'Select'
+                    ])
+                @endcomponent
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div> --}}
         <div class="row mt-4">
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
@@ -11,6 +29,18 @@
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Leave</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <form action="{{route('leave.index')}}" method="GET">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
+                            <button class="search-btn" type="submit" style="border: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row mt-4">
@@ -77,7 +107,7 @@
                             </table>
                           </div>
                         <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                            {{$leave->links()}}
+                            {{$leave->append(['search' => isset($requestData->search) ? $requestData->search : null])}}
                         </div>
                     </div>
                 </div>

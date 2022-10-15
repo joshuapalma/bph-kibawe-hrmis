@@ -4,16 +4,30 @@ namespace App\Repositories;
 
 use App\Models\EmployeeProfile;
 use App\Models\Tardy;
+use Illuminate\Pipeline\Pipeline;
 use PDF;
 
 class TardyRepository
 {
-    public function getAllTardy()
+    public function getAllTardy($request)
     {
-        $employeeName = EmployeeProfile::pluck('complete_name');
-        $tardy = Tardy::orderBy('created_at', 'ASC')->paginate(10);
+        $requestData = [
+            'search' => isset($request->search) ? $request->search : null
+        ];
 
-        return compact('employeeName', 'tardy');
+        $employeeName = EmployeeProfile::pluck('complete_name');
+        $query = Tardy::query();
+
+        $result = app(Pipeline::class)
+            ->send($query)
+            ->through([
+                \App\Pipelines\Search\SearchTardyTable::class
+            ])->thenReturn();
+
+        $data = $result ? $result : $query;
+        $tardy = $data->orderBy('created_at', 'ASC')->paginate(10);
+
+        return compact('employeeName', 'tardy', 'requestData');
     }
 
     public function storeTardy($request)

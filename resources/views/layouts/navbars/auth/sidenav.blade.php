@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'leave' ? 'active' : '' }}" href="{{ route('leave') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'leave.index' ? 'active' : '' }}" href="{{ route('leave.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-check-bold text-sm opacity-10" style="color: #A7C7E7;"></i>
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'tardy' ? 'active' : '' }}" href="{{ route('tardy') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tardy.index' ? 'active' : '' }}" href="{{ route('tardy.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-watch-time text-sm opacity-10" style="color: #A7C7E7;"></i>

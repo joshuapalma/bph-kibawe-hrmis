@@ -21,9 +21,9 @@ class TardyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $result = $this->tardy->getAllTardy();
+        $result = $this->tardy->getAllTardy($request);
         return view('pages.tardy', $result);
     }
 

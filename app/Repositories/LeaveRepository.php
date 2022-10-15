@@ -4,16 +4,30 @@ namespace App\Repositories;
 
 use App\Models\EmployeeProfile;
 use App\Models\Leave;
+use Illuminate\Pipeline\Pipeline;
 use PDF;
 
 class LeaveRepository
 {
-    public function getAllLeave()
+    public function getAllLeave($request)
     {
-        $employeeName = EmployeeProfile::pluck('complete_name');
-        $leave = Leave::orderBy('created_at', 'ASC')->paginate(10);
+        $requestData = [
+            'search' => isset($request->search) ? $request->search : null
+        ];
 
-        return compact('employeeName', 'leave');
+        $employeeName = EmployeeProfile::pluck('complete_name');
+        $query = Leave::query();
+
+        $result = app(Pipeline::class)
+            ->send($query)
+            ->through([
+                \App\Pipelines\Search\SearchLeaveTable::class
+            ])->thenReturn();
+
+        $data = $result ? $result : $query;
+        $leave = $data->orderBy('created_at', 'ASC')->paginate(10);
+
+        return compact('employeeName', 'leave', 'requestData');
     }
 
     public function storeLeave($request)

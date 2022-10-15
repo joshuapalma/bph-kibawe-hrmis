@@ -13,6 +13,18 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <form action="{{route('tardy.index')}}" method="GET">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
+                            <button class="search-btn" type="submit" style="border: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="row mt-4">
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100">
