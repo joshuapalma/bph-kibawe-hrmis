@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/leave/store', [LeaveController::class, 'store'])->name('leave.store');
     Route::put('/leave/update/{id}', [LeaveController::class, 'update'])->name('leave.update');
     Route::delete('/leave/delete/{id}', [LeaveController::class, 'destroy'])->name('leave.destroy');
-    Route::get('/leave/generate-pdf', [LeaveController::class, 'generatePDF'])->name('leave.generate-pdf');
+    Route::post('/leave/generate-pdf', [LeaveController::class, 'generatePDF'])->name('leave.generate-pdf');
 
     Route::get('/tardy', [TardyController::class, 'index'])->name('tardy.index');
     Route::post('/tardy/store', [TardyController::class, 'store'])->name('tardy.store');

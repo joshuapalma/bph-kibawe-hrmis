@@ -97,9 +97,9 @@ class LeaveController extends Controller
         return redirect()->route('leave.index')->with('success', 'Leave Deleted Successfully');
     }
 
-    public function generatePDF()
+    public function generatePDF(Request $request)
     {
-        $result = $this->leave->generatePdf();
+        $result = $this->leave->generatePdf($request);
         return $result;
     }
 

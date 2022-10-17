@@ -8,7 +8,8 @@
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
-                        <a href="{{ route('leave.generate-pdf') }}" class="btn bg-gradient-info z-index-2 me-2" target="_blank">Generate Report</a>
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
+                        {{-- <a href="{{ route('leave.generate-pdf') }}" class="btn bg-gradient-info z-index-2 me-2" target="_blank">Generate Report</a> --}}
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Leave</button>
                     </div>
                 </div>
@@ -104,6 +105,7 @@
     @include('modals.leave.create-leave-modal')
     @include('modals.leave.edit-leave-modal')
     @include('modals.leave.filter-modal')
+    @include('modals.leave.export-modal')
     @include('modals.delete-modal')
 @endsection
 
@@ -200,6 +202,10 @@
                     console.log(result);
                 }
             });
+        }
+
+        function exportModal(){
+            $('#exportLeaveModal').modal('hide');
         }
     </script>
 @endpush

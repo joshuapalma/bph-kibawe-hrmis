@@ -63,9 +63,9 @@ class LeaveRepository
         return Leave::find($leaveId->id)->delete();
     }
 
-    public function generatePdf()
+    public function generatePdf($request)
     {
-        $query = Leave::get();
+        $query = Leave::whereBetween('date_of_leave', [$request->from_date, $request->to_date])->get();
 
         $data = [
             'title' => 'BPH-KIBAWE-HRMIS Leave Report',
