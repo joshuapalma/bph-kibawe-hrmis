@@ -32,16 +32,31 @@ class TardyRepository
 
     public function storeTardy($request)
     {
-        $query = Tardy::insertGetId([
-            'name' => $request->name,
-            'designation' => $request->designation,
-            'tardy' => $request->tardy,
-            'undertime' => $request->undertime,
-            'hours' => $request->hours,
-            'mins' => $request->mins,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
+        //Checker if the name is already exists
+        $checker = Tardy::where('name', $request->name)->first();
+        //If name already exists, just only add the incoming data
+        if($checker) {
+            $query = Tardy::where('name', $request->name)->update([
+                'designation' => $request->designation,
+                'tardy' => ($checker->tardy) + ($request->tardy),
+                'undertime' => ($checker->undertime) + ($request->undertime),
+                'hours' => ($checker->hours) + ($request->hours),
+                'mins' => ($checker->mins) + ($request->mins),
+            ]);
+        } else {
+            //Else do this
+            $query = Tardy::insertGetId([
+                'name' => $request->name,
+                'designation' => $request->designation,
+                'tardy' => $request->tardy,
+                'undertime' => $request->undertime,
+                'hours' => $request->hours,
+                'mins' => $request->mins,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        }
+        
 
         return $query;
     }
