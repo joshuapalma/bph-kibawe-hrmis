@@ -100,11 +100,6 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Chief of Hospital II</p>
         </div>
-        {{-- <div class="col-md-6">
-            <p class="mb-5">Approved by:</p>
-            <p class="font-weight-bold" style="line-height:5px;">ANTONIO R. TUBOG, MD, FPSMS</p>
-            <p class="font-weight-bold" style="line-height:5px;">Chief of Hospital II</p>
-        </div> --}}
     </div>
 </body>
 </html>
