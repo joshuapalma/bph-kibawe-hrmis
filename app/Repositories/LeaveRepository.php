@@ -21,6 +21,8 @@ class LeaveRepository
         $result = app(Pipeline::class)
             ->send($query)
             ->through([
+                \App\Pipelines\Filter\FilterLeaveTable::class,
+                \App\Pipelines\Filter\DateFilter::class,
                 \App\Pipelines\Search\SearchLeaveTable::class
             ])->thenReturn();
 

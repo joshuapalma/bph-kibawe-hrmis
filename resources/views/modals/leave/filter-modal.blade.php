@@ -7,8 +7,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('leave.store') }}" method="POST" id="add-leave-form" enctype="multipart/form-data">
-            @csrf
+        <form action="{{ route('leave.index') }}" method="GET" id="filter-leave" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
