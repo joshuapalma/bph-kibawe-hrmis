@@ -60,7 +60,7 @@
         </div>
         <table class="table table-bordered mb-5">
             <thead>
-                <tr class="table-info">
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Designation</th>

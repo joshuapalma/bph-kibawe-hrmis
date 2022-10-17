@@ -123,7 +123,7 @@
         <br>
         <table class="table table-bordered mb-5">
             <thead>
-                <tr class="table-info text-center">
+                <tr class="text-center">
                     <th>#</th>
                     <th>Name</th>
                     <th>Designation</th>
