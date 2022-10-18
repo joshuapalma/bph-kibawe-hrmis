@@ -52,11 +52,20 @@
                             'id' => 'edit_nature_of_leave',
                             'value' => "",
                             'class' => 'form-control',
-                            'placeholder' => 'Select'
+                            'placeholder' => 'Select',
+                            // 'onchange' => "displaySpecificOthersField(this)"
                         ])
                     @endcomponent
                   </div>
                 </div>
+                {{-- <div class="row specify_others_field" style="display: none;">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <label>Specify Others</label>
+                          <input type="text" class="form-control" id="edit_specify_others" name="specify_others" placeholder="Specify Others">
+                      </div>
+                  </div>
+                </div> --}}
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>

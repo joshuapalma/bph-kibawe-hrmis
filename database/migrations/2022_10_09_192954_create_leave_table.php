@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('designation')->nullable();
             $table->dateTime('date_of_leave')->nullable();
             $table->string('nature_of_leave')->nullable();
+            $table->string('specify_others')->nullable();
             $table->timestamps();
         });
     }

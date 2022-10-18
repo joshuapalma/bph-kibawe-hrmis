@@ -23,7 +23,8 @@ if (!function_exists('getNatureOfLeave')) {
 			'Rehabilitation Privilege' => 'Rehabilitation Privilege',
 			'Special Emergency ( Calamity) Leave' => 'Special Emergency ( Calamity) Leave',
 			'Special Leave Benefits for Women' => 'Special Leave Benefits for Women',
-			'Adoption Leave' => 'Adoption Leave'
+			'Adoption Leave' => 'Adoption Leave',
+			'Specify Others' => 'Specify Others' 
 		];
 	}
 }
