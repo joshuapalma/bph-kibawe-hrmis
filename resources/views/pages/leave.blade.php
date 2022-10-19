@@ -45,7 +45,7 @@
                               </thead>
                               <tbody>
                                 @forelse ($leave as $index => $row)
-                                    <tr>
+                                    <tr class="text-center">
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
                                         </td>

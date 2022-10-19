@@ -88,7 +88,7 @@
                               </thead>
                               <tbody>
                                 @forelse ($notification as $index => $row)
-                                    <tr>
+                                    <tr class="text-center">
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
                                         </td>
@@ -102,7 +102,7 @@
                                             <span class="text-xs font-weight-bold badge bg-gradient-danger">Warning</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }} Undertime</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }} Tardy</span>
                                         </td>
                                     </tr>
                                 @empty
