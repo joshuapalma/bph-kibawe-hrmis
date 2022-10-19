@@ -122,13 +122,7 @@
                 },
                 designation: {
                     required: true
-                },
-                date_of_leave: {
-                    required: true
-                },
-                nature_of_leave: {
-                    required: true
-                },
+                }
             },
             errorElement: "span",
             errorClass: "text-danger text-xs font-weight-bold",
@@ -141,16 +135,7 @@
                 },
                 designation: {
                     required: true
-                },
-                date_applied: {
-                    required: true
-                },
-                date_of_leave: {
-                    required: true
-                },
-                nature_of_leave: {
-                    required: true
-                },
+                }
             },
             errorElement: "span",
             errorClass: "text-danger text-xs font-weight-bold",

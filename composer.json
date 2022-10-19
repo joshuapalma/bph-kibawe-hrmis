@@ -14,8 +14,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "php-flasher/flasher-laravel": "^1.7",
-        "php-flasher/flasher-sweetalert-laravel": "^1.7",
-        "ext-gd2": "*"
+        "php-flasher/flasher-sweetalert-laravel": "^1.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
