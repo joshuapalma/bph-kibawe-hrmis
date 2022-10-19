@@ -23,7 +23,7 @@
                 <p class="text-center">CM Recto Street, Palma, Kibawe, Bukidnon</p>
             </div>
         </div>
-        <hr>
+        <hr style="height: 5px !important; color: black;">
         <div class="row">
             <div class="col-md-12">
                 <p class="font-weight-bold lh-1 text-center">TRANSMITTAL</p>
