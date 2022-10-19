@@ -9,7 +9,6 @@
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
-                        {{-- <a href="{{ route('leave.generate-pdf') }}" class="btn bg-gradient-info z-index-2 me-2" target="_blank">Generate Report</a> --}}
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Leave</button>
                     </div>
                 </div>
@@ -40,7 +39,7 @@
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Designation</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Leave</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nature of Leave</th>
-                                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Specify Others (if available)</th> --}}
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Specify Others (if available)</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                               </thead>
@@ -62,9 +61,9 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ getNatureOfLeave()[$row->nature_of_leave] }}</span>
                                         </td>
-                                        {{-- <td class="align-middle text-center">
+                                        <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $row->specify_others ? $row->specify_others : "Not Available" }}</span>
-                                        </td> --}}
+                                        </td>
                                         <td class="align-middle">
                                             <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
                                             <button 
@@ -163,14 +162,14 @@
             $('#edit_designation').attr('value',detail.designation);
             $('#edit_date_of_leave').val(newDateOfLeave);
             $('#edit_nature_of_leave').val(detail.nature_of_leave);
-            // $('#edit_specify_others').attr('value', detail.specify_others);
+            $('#edit_specify_others').attr('value', detail.specify_others);
             $('#edit-leave-form').attr('action', `leave/update/${detail.id}`)
 
-            // if($('#edit_nature_of_leave').val() == "Specify Others") {
-            //     $('.specify_others_field').css("display", "block");
-            // } else {
-            //     $('.specify_others_field').css("display", "none");
-            // }
+            if($('#edit_nature_of_leave').val() == "Specify Others") {
+                $('.specify_others_field').css("display", "block");
+            } else {
+                $('.specify_others_field').css("display", "none");
+            }
         }
 
         function deleteLeave(btn) {
@@ -204,14 +203,14 @@
             $('#exportLeaveModal').modal('hide');
         }
 
-        // function displaySpecificOthersField(leaveValue){
-        //     if($(leaveValue).val() == "Specify Others"){
-        //         $('.specify_others_field').css("display", "block");
-        //     } else {
-        //         $('.specify_others_field').css("display", "none");
-        //         $('#specify_others').val("");
-        //         $('#edit_specify_others').val("");
-        //     }
-        // }
+        function displaySpecificOthersField(leaveValue){
+            if($(leaveValue).val() == "Specify Others"){
+                $('.specify_others_field').css("display", "block");
+            } else {
+                $('.specify_others_field').css("display", "none");
+                $('#specify_others').val("");
+                $('#edit_specify_others').val("");
+            }
+        }
     </script>
 @endpush

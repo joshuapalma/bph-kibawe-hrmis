@@ -38,7 +38,7 @@
                   <div class="col-md-12">
                       <div class="form-group">
                         <label for="example-date-input" class="form-control-label">Date of Leave</label>
-                        <input class="form-control" type="date" value="" name="date_of_leave" id="date_of_leave">
+                        <input class="form-control" type="date" value="" name="date_of_leave" id="date_of_leave" min={{date('Y-m-d')}}>
                     </div>
                   </div>
                 </div>
@@ -53,19 +53,19 @@
                             'value' => "",
                             'class' => 'form-control',
                             'placeholder' => 'Select',
-                            // 'onchange' => "displaySpecificOthersField(this)"
+                            'onchange' => "displaySpecificOthersField(this)"
                         ])
                     @endcomponent
                   </div>
                 </div>
-                {{-- <div class="row specify_others_field" style="display: none;">
+                <div class="row specify_others_field" style="display: none;">
                   <div class="col-md-12">
                       <div class="form-group">
                           <label>Specify Others</label>
                           <input type="text" class="form-control" id="specify_others" name="specify_others" placeholder="Specify Others">
                       </div>
                   </div>
-                </div> --}}
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>

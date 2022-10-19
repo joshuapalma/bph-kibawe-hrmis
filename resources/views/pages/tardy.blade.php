@@ -7,7 +7,7 @@
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
-                        <a href="{{ route('tardy.generate-pdf') }}" class="btn bg-gradient-info z-index-2 me-2" target="_blank">Generate Report</a>
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportTardyModal">Generate Report</button>
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addTardyModal">Add Tardy / Undertime</button>
                     </div>
                 </div>
@@ -117,6 +117,7 @@
     @include('modals.delete-modal')
     @include('modals.tardy.create-tardy-modal')
     @include('modals.tardy.edit-tardy-modal')
+    @include('modals.tardy.export-modal')
 @endsection
 
 @push('js')
@@ -185,6 +186,10 @@
                     console.log(result);
                 }
             });
+        }
+
+        function exportModal(){
+            $('#exportLeaveModal').modal('hide');
         }
     </script>
 @endpush

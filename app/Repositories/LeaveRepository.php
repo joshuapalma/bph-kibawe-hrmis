@@ -39,6 +39,7 @@ class LeaveRepository
             'designation' => $request->designation,
             'date_of_leave' => $request->date_of_leave,
             'nature_of_leave' => $request->nature_of_leave,
+            'specify_others' => $request->specify_others,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -53,6 +54,7 @@ class LeaveRepository
             'designation' => $request->designation,
             'date_of_leave' => $request->date_of_leave,
             'nature_of_leave' => $request->nature_of_leave,
+            'specify_others' => $request->specify_others,
         ]);
 
         return $query;
