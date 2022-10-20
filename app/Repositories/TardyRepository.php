@@ -35,6 +35,9 @@ class TardyRepository
         //Checker if the name is already exists
         $checker = Tardy::where('name', $request->name)->first();
         //If name already exists, just only add the incoming data
+        //Check if the total of stored mins and incoming mins is equal to 60 (do computation)
+        //If true
+        //For mins, deduct 60 to the total of stored mins and incoming mins, then add 1 to the hours
         if($checker) {
             $query = Tardy::where('name', $request->name)->update([
                 'designation' => $request->designation,

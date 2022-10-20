@@ -60,7 +60,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>Minutes</label>
-                          <input type="number" class="form-control" id="edit_mins" name="mins" placeholder="Minutes">
+                          <input type="number" class="form-control" id="edit_mins" name="mins" placeholder="Minutes" max="60">
                       </div>
                   </div>
               </div>
