@@ -35,17 +35,37 @@ class TardyRepository
         //Checker if the name is already exists
         $checker = Tardy::where('name', $request->name)->first();
         //If name already exists, just only add the incoming data
-        //Check if the total of stored mins and incoming mins is equal to 60 (do computation)
-        //If true
-        //For mins, deduct 60 to the total of stored mins and incoming mins, then add 1 to the hours
+        //Check if the total of stored mins and incoming mins is equal to 60 (do computation)     
         if($checker) {
-            $query = Tardy::where('name', $request->name)->update([
-                'designation' => $request->designation,
-                'tardy' => ($checker->tardy) + ($request->tardy),
-                'undertime' => ($checker->undertime) + ($request->undertime),
-                'hours' => ($checker->hours) + ($request->hours),
-                'mins' => ($checker->mins) + ($request->mins),
-            ]);
+            $storedMins = $checker->mins;
+            $incomingMins = $request->mins;
+            $totalMins = $storedMins + $incomingMins;
+
+            if($totalMins >= 60){
+                //For mins, deduct 60 to the total of stored mins and incoming mins, then add 1 to the hours
+                $newMins = $totalMins - 60;
+                $newHours = ($checker->hours) + ($request->hours) + 1;
+
+                $query = Tardy::where('name', $request->name)->update([
+                    'designation' => $request->designation,
+                    'tardy' => ($checker->tardy) + ($request->tardy),
+                    'undertime' => ($checker->undertime) + ($request->undertime),
+                    'hours' => $newHours,
+                    'mins' => $newMins,
+                ]);
+
+                return $query;
+            } else {
+                $query = Tardy::where('name', $request->name)->update([
+                    'designation' => $request->designation,
+                    'tardy' => ($checker->tardy) + ($request->tardy),
+                    'undertime' => ($checker->undertime) + ($request->undertime),
+                    'hours' => ($checker->hours) + ($request->hours),
+                    'mins' => ($checker->mins) + ($request->mins),
+                ]);
+
+                return $query;
+            }
         } else {
             //Else do this
             $query = Tardy::insertGetId([
@@ -58,10 +78,9 @@ class TardyRepository
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ]);
-        }
-        
 
-        return $query;
+            return $query;
+        }
     }
 
     public function updateTardy($tardyId, $request)

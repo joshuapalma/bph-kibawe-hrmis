@@ -26,10 +26,10 @@ class StoreTardyRequests extends FormRequest
         return [
             'name' => ['string'],
             'designation' => ['string'],
-            'tardy' => ['integer'],
-            'undertime' => ['integer'],
-            'hours' => ['integer'],
-            'mins' => ['integer'],
+            'tardy' => ['integer', 'nullable'],
+            'undertime' => ['integer', 'nullable'],
+            'hours' => ['integer', 'nullable'],
+            'mins' => ['integer', 'nullable'],
         ];
     }
 }
