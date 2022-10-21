@@ -27,7 +27,7 @@
             <h6 class="font-weight-bold text-center lh-1">OFFICE: BUKIDNON PROVINCIAL HOSPITAL - KIBAWE (REGULAR)</h6>
         </div>
         <br>
-        <table class="table table-bordered mb-5">
+        <table class="table table-bordered mb-5" style="border-color: black;">
             <thead>
                 <tr class="text-center">
                     <th rowspan="2">#</th>

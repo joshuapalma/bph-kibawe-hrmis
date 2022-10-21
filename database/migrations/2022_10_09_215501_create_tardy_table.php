@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('undertime')->nullable();
             $table->integer('hours')->nullable();
             $table->integer('mins')->nullable();
+            $table->string('month_generated')->nullable();
             $table->timestamps();
         });
     }

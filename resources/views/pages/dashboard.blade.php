@@ -79,35 +79,35 @@
                             <table class="table align-items-center mb-0">
                               <thead>
                                 <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Designation</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Remarks</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">#</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Designation</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Status</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Remarks</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 @forelse ($notification as $index => $row)
                                     <tr class="text-center">
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $index + 1 }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ ucfirst($row->name) }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->name) }}</p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->designation) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold badge bg-gradient-danger">Warning</span>
+                                            <span class="text-xs font-weight-bold table-text badge bg-gradient-danger">Warning</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }} Tardy</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->tardy }} Tardy and {{ $row->undertime }} Undertime</span>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="font-weight-bold text-center">No Data Available</td>
+                                        <td colspan="7" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
                                 @endforelse
                               </tbody>

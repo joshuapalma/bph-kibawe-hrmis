@@ -34,10 +34,10 @@
                 <p class="font-weight-bold lh-1">To:</p>
             </div>
             <div class="col-md-10">
-                <h6 class="font-weight-bold">MARIE CARMEN C. UNABIA</h6>
-                <p class="lh-1">PO Department Head</p>
-                <p class="lh-1">PEEDM Officer</p>
-                <p class="lh-1">Province of Bukidnon</p>
+                <p class="font-weight-bold" style="line-height: 5px">MARIE CARMEN C. UNABIA</p>
+                <p style="line-height: 5px">PO Department Head</p>
+                <p style="line-height: 5px">PEEDM Officer</p>
+                <p style="line-height: 5px">Province of Bukidnon</p>
             </div>
         </div>
         <br>

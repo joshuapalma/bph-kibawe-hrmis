@@ -26,35 +26,35 @@
                             <table class="table align-items-center mb-0">
                               <thead>
                                 <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Middle Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Designation</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">#</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">First Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Middle Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Last Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Address</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Designation</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 @forelse ($employeeProfile as $index => $row)
                                     <tr>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $index + 1 }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ ucfirst($row->first_name) }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->first_name) }}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->middle_name) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->middle_name) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->last_name) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->last_name) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->address) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->address) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->designation) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <input type="hidden" id="employee-profile-details-{{$row->id}}" data-detail="{{ $row }}">
@@ -79,7 +79,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="font-weight-bold text-center">No Data Available</td>
+                                        <td colspan="7" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
                                 @endforelse
                               </tbody>

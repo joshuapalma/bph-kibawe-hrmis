@@ -16,7 +16,7 @@ class TardyRepository
         ];
 
         $employeeName = EmployeeProfile::pluck('complete_name');
-        $query = Tardy::query();
+        $query = Tardy::where('month_generated', date('F'));
 
         $result = app(Pipeline::class)
             ->send($query)
@@ -26,6 +26,7 @@ class TardyRepository
 
         $data = $result ? $result : $query;
         $tardy = $data->orderBy('created_at', 'ASC')->paginate(10);
+        // {{dd(date('F'),  $row->created_at->format('F'))}}
 
         return compact('employeeName', 'tardy', 'requestData');
     }
@@ -36,7 +37,7 @@ class TardyRepository
         $checker = Tardy::where('name', $request->name)->first();
         //If name already exists, just only add the incoming data
         //Check if the total of stored mins and incoming mins is equal to 60 (do computation)     
-        if($checker) {
+        if($checker && $checker->month_generated == date('F')) {
             $storedMins = $checker->mins;
             $incomingMins = $request->mins;
             $totalMins = $storedMins + $incomingMins;
@@ -75,6 +76,7 @@ class TardyRepository
                 'undertime' => $request->undertime,
                 'hours' => $request->hours,
                 'mins' => $request->mins,
+                'month_generated' => \Carbon\Carbon::now()->format('F'),
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ]);

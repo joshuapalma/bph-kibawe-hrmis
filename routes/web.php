@@ -66,5 +66,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tardy/store', [TardyController::class, 'store'])->name('tardy.store');
     Route::put('/tardy/update/{id}', [TardyController::class, 'update'])->name('tardy.update');
     Route::delete('/tardy/destroy/{id}', [TardyController::class, 'destroy'])->name('tardy.destroy');
-    Route::get('/tardy/generate-pdf', [TardyController::class, 'generatePDF'])->name('tardy.generate-pdf');
+    Route::post('/tardy/generate-pdf', [TardyController::class, 'generatePDF'])->name('tardy.generate-pdf');
 });

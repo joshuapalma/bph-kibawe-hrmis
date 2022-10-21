@@ -33,19 +33,19 @@
                             <table class="table align-items-center mb-0">
                               <thead>
                                 <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Designation</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. of times Tardy</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. of times Undertime</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" colspan="2">Total No. of</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">#</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 table-text">Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Designation</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">No. of times Tardy</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">No. of times Undertime</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text" colspan="2">Total No. of</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text"></th>
                                 </tr>
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" colspan="5"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hours</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Minutes</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Hours</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Minutes</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" colspan="2"></th>
                                 </tr>
                               </thead>
@@ -53,25 +53,25 @@
                                 @forelse ($tardy as $index => $row)
                                     <tr class="text-center">
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 table-text">{{ $index + 1 }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{ ucfirst($row->name) }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 table-text">{{ ucfirst($row->name) }}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ ucfirst($row->designation) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->tardy }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->tardy }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->undertime }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->undertime }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->hours }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->hours }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $row->mins }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->mins }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <input type="hidden" id="tardy-details-{{$row->id}}" data-detail="{{ $row }}">
@@ -115,9 +115,9 @@
         </div>
     </div>
     @include('modals.delete-modal')
+    @include('modals.tardy.export-modal')
     @include('modals.tardy.create-tardy-modal')
     @include('modals.tardy.edit-tardy-modal')
-    @include('modals.tardy.export-modal')
 @endsection
 
 @push('js')
