@@ -46,6 +46,7 @@ class EmployeeProfileRepository
     public function updateEmployeeProfile($employeeProfileId, $request)
     {
         $query = EmployeeProfile::where('id', $employeeProfileId->id)->update([
+            'complete_name' => $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name,
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,

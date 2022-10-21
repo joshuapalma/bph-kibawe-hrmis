@@ -99,11 +99,22 @@
                                             <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold table-text badge bg-gradient-danger">Warning</span>
+                                            <span class="text-xs font-weight-bold badge bg-gradient-danger">Warning</span>
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->tardy }} Tardy and {{ $row->undertime }} Undertime</span>
-                                        </td>
+                                        @if($row->tardy >= 10 && $row->undertime < 10)
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->tardy }} Tardy</span>
+                                            </td>
+                                        @elseif($row->undertime >= 10 && $row->tardy < 10)
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->undertime }} Undertime</span>
+                                            </td>
+                                        @elseif($row->undertime >= 10 && $row->tardy >= 10)
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->tardy }} Tardy and {{ $row->undertime }} Undertime</span>
+                                            </td>
+                                        @endif
+                                        
                                     </tr>
                                 @empty
                                     <tr>
