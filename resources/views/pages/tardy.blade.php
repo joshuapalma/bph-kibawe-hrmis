@@ -130,6 +130,9 @@
                 designation: {
                     required: true
                 },
+                mins: {
+                    maxValue: '59'
+                }
             },
             errorElement: "span",
             errorClass: "text-danger text-xs font-weight-bold",
@@ -143,6 +146,9 @@
                 designation: {
                     required: true
                 },
+                mins: {
+                    maxValue: '59'
+                }
             },
             errorElement: "span",
             errorClass: "text-danger text-xs font-weight-bold",
@@ -191,5 +197,16 @@
         function exportModal(){
             $('#exportLeaveModal').modal('hide');
         }
+
+        $.validator.addMethod('maxValue', function (value, element, param) {    
+            let inputValue = value;
+
+            if(inputValue > 59){
+                return false;
+            } else {
+                return true;
+            }
+            
+        }, 'The value must not be greater than 59');
     </script>
 @endpush

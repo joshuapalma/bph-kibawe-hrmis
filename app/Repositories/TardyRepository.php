@@ -87,14 +87,28 @@ class TardyRepository
 
     public function updateTardy($tardyId, $request)
     {
-        $query = Tardy::where('id', $tardyId->id)->update([
-            'name' => $request->name,
-            'designation' => $request->designation,
-            'tardy' => $request->tardy,
-            'undertime' => $request->undertime,
-            'hours' => $request->hours,
-            'mins' => $request->mins,
-        ]);
+        if($request->mins >= 60){
+            $newMins = $request->mins - 60;
+
+            $query = Tardy::where('id', $tardyId->id)->update([
+                'name' => $request->name,
+                'designation' => $request->designation,
+                'tardy' => $request->tardy,
+                'undertime' => $request->undertime,
+                'hours' => ($request->hours) + 1,
+                'mins' => $newMins,
+            ]);
+        } else {
+            $query = Tardy::where('id', $tardyId->id)->update([
+                'name' => $request->name,
+                'designation' => $request->designation,
+                'tardy' => $request->tardy,
+                'undertime' => $request->undertime,
+                'hours' => $request->hours,
+                'mins' => $request->mins,
+            ]);
+        }
+        
 
         return $query;
     }
