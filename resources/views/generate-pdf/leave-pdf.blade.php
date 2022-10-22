@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <style type="text/css">  
+        table td, table th{  
+            border:1px solid black;  
+            padding: 7px;
+            text-align: center;
+        }  
+    </style>  
 </head>
 <body>
     <div>
@@ -14,16 +22,15 @@
         <div class="row" style="margin-top: -90px !important;">
             <div class="col-md-12">
                 <p class="text-center">Republic of the Philippines</p>
-                <p class="text-center font-weight-bold">Province of Bukidnon</p>
+                <p class="text-center font-weight-bold">PROVINCE OF BUKIDNON</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="border-bottom: 2px solid black;">
             <div class="col-md-12">
                 <p class="text-center font-weight-bold">BUKIDNON PROVINCIAL HOSPITAL - KIBAWE</p>
-                <p class="text-center">CM Recto Street, Palma, Kibawe, Bukidnon</p>
+                <p class="text-center" style="font-style: italic;">CM Recto Street, Palma, Kibawe, Bukidnon</p>
             </div>
         </div>
-        <hr style="height: 5px !important; color: black;">
         <div class="row">
             <div class="col-md-12">
                 <p class="font-weight-bold lh-1 text-center">TRANSMITTAL</p>
@@ -37,13 +44,13 @@
                 <p class="font-weight-bold" style="line-height: 5px">MARIE CARMEN C. UNABIA</p>
                 <p style="line-height: 5px">PO Department Head</p>
                 <p style="line-height: 5px">PEEDM Officer</p>
-                <p style="line-height: 5px">Province of Bukidnon</p>
+                <p style="line-height: 5px">PROVINCE OF BUKIDNON</p>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-12">
-                <p class="font-weight-bold lh-1">Date: {{ date('M d, Y') }}<</p>
+                <p class="font-weight-bold lh-1">Date: {{ Str::upper(date('F d, Y')) }}</p>
             </div>
         </div>
         <br>
@@ -58,10 +65,10 @@
                 <p class="lh-1">Ma'am, respectfully sumitting herewith the Application for Leave of BPH-Kibawe personnel, to wit;</p>
             </div>
         </div>
-        <table class="table table-bordered mb-5">
+        <table class="mb-5">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
+                    <th scope="col">No.</th>
                     <th scope="col">Name</th>
                     <th scope="col">Designation</th>
                     <th scope="col">Date of Leave</th>

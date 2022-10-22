@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <style type="text/css">  
+        table td, table th{  
+            border:1px solid black;  
+            padding: 7px;
+            text-align: center;
+        }  
+    </style>  
 </head>
 <body>
     <div class="mt-5">
@@ -16,21 +24,20 @@
                 <p class="text-center lh-1">Provincial Capitol</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3" style="border-bottom: 2px solid black;">
             <div class="col-md-12">
                 <p class="text-center font-weight-bold lh-1">MONTHLY TARDY AND UNDERTIME SUMMARY REPORT</p>
                 <p class="text-center lh-1">For the month of {{ Str::upper(date('F Y')) }}</p>
             </div>
         </div>
-        <hr>
         <div class="row">
             <h6 class="font-weight-bold text-center lh-1">OFFICE: BUKIDNON PROVINCIAL HOSPITAL - KIBAWE (REGULAR)</h6>
         </div>
         <br>
-        <table class="table table-bordered mb-5" style="border-color: black;">
+        <table class="mb-5">
             <thead>
                 <tr class="text-center">
-                    <th rowspan="2">#</th>
+                    <th rowspan="2">No.</th>
                     <th rowspan="2">Name</th>
                     <th rowspan="2">Designation</th>
                     <th rowspan="2">No. of times Tardy</th>
