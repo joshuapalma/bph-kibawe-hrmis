@@ -24,7 +24,7 @@
                 <p class="text-center lh-1">Provincial Capitol</p>
             </div>
         </div>
-        <div class="row mb-3" style="border-bottom: 2px solid black;">
+        <div class="row mb-3">
             <div class="col-md-12">
                 <p class="text-center font-weight-bold lh-1">MONTHLY TARDY AND UNDERTIME SUMMARY REPORT</p>
                 <p class="text-center lh-1">For the month of {{ Str::upper(date('F Y')) }}</p>

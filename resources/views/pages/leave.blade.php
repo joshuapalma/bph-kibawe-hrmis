@@ -39,7 +39,6 @@
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Designation</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Date of Leave</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Nature of Leave</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Specify Others (if available)</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
                               </thead>
@@ -59,10 +58,7 @@
                                             <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ getNatureOfLeave()[$row->nature_of_leave] }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->specify_others ? $row->specify_others : "Not Available" }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ getNatureOfLeave()[$row->nature_of_leave] }} {{ $row->specify_others ? '/ '.($row->specify_others) : "" }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
@@ -87,7 +83,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>
+                                        <td colspan="5" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
                                 @endforelse
                               </tbody>

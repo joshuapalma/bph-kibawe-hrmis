@@ -82,7 +82,7 @@
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->designation }}</td>
                         <td>{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</td>
-                        <td>{{ $row->nature_of_leave }}</td>
+                        <td>{{ $row->nature_of_leave }} {{ $row->specify_others ? '/ '.($row->specify_others) : "" }}</td>
                     </tr>
                 @empty
                     <tr>

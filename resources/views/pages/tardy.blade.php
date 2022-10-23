@@ -195,7 +195,7 @@
         }
 
         function exportModal(){
-            $('#exportLeaveModal').modal('hide');
+            $('#exportTardyModal').modal('hide');
         }
 
         $.validator.addMethod('maxValue', function (value, element, param) {    
