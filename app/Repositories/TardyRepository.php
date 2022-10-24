@@ -25,8 +25,7 @@ class TardyRepository
             ])->thenReturn();
 
         $data = $result ? $result : $query;
-        $tardy = $data->orderBy('created_at', 'ASC')->paginate(10);
-        // {{dd(date('F'),  $row->created_at->format('F'))}}
+        $tardy = $data->orderBy('name')->paginate(10);
 
         return compact('employeeName', 'tardy', 'requestData');
     }

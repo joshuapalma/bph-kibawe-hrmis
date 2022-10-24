@@ -22,7 +22,7 @@ class EmployeeProfileRepository
             ])->thenReturn();
 
         $data = $result ? $result : $query;
-        $employeeProfile = $data->orderBy('created_at', 'ASC')->paginate(10);
+        $employeeProfile = $data->orderBy('complete_name')->paginate(10);
 
         return compact('employeeProfile', 'requestData');
     }

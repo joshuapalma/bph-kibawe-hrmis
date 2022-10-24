@@ -27,7 +27,7 @@ class LeaveRepository
             ])->thenReturn();
 
         $data = $result ? $result : $query;
-        $leave = $data->orderBy('created_at', 'ASC')->paginate(10);
+        $leave = $data->orderBy('name')->paginate(10);
 
         return compact('employeeName', 'leave', 'requestData');
     }
