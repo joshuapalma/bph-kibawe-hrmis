@@ -30,7 +30,7 @@ class HomeController extends Controller
             'employeeCount' => EmployeeProfile::count(),
             'leaveCount' => Leave::count(),
             'tardyCount' => Tardy::where('month_generated', date('F'))->count(),
-            'notification' => Tardy::where('month_generated', date('F'))->select('id', 'name', 'designation', 'undertime', 'tardy')->paginate(10)
+            'notification' => Tardy::where('month_generated', date('F'))->where('tardy', '>=', '10' )->orWhere('undertime', '>=', '10' )->select('id', 'name', 'designation', 'undertime', 'tardy')->paginate(10)
         ];
 
         return view('pages.dashboard', $data);

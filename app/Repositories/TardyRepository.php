@@ -120,7 +120,7 @@ class TardyRepository
 
     public function generatePdf()
     {
-        $query = Tardy::get();
+        $query = Tardy::orderBy('name')->get();
 
         $data = [
             'title' => 'BPH-KIBAWE-HRMIS Tardy Report',

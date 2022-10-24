@@ -67,7 +67,7 @@ class LeaveRepository
 
     public function generatePdf($request)
     {
-        $query = Leave::whereBetween('date_of_leave', [$request->from_date, $request->to_date])->get();
+        $query = Leave::whereBetween('date_of_leave', [$request->from_date, $request->to_date])->orderBy('name')->get();
 
         $data = [
             'title' => 'BPH-KIBAWE-HRMIS Leave Report',
