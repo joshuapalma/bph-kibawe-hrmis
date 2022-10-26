@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('register.perform') }}">
+                            <form method="POST" action="{{ route('register.perform') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="flex flex-col mb-3">
                                     <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Name" value="{{ old('username') }}" >
